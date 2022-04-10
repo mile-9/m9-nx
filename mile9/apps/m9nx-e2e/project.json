@@ -1,0 +1,28 @@
+{
+  "root": "apps/m9nx-e2e",
+  "sourceRoot": "apps/m9nx-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/m9nx-e2e/cypress.json",
+        "devServerTarget": "m9nx:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "m9nx:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/m9nx-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["m9nx"]
+}
